@@ -64,6 +64,7 @@
     ripgrep
     unzip
     obsidian
+		google-chrome
   ];
 
   services.xserver = {
@@ -73,7 +74,10 @@
     };
   };
 
-  services.libinput.enable = true;
+  services.libinput = {
+		enable = true;
+		mouse.accelProfile = "flat";
+	};
 
   environment.shells = with pkgs; [ zsh ];
   users.defaultUserShell = pkgs.zsh;
