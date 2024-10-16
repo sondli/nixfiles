@@ -1,28 +1,30 @@
 {
   programs.nixvim = {
+		plugins.web-devicons.enable = true;
     plugins.lsp = {
       enable = true;
       servers = {
-        nil-ls = {
+        nil_ls = {
           enable = true;
         };
-        lua-ls = {
+        lua_ls = {
           enable = true;
           settings.diagnostics.globals = [ "vim" ];
         };
-        rust-analyzer = {
+        rust_analyzer = {
           enable = true;
           installCargo = false;
           installRustc = false;
         };
-        csharp-ls.enable = true;
+        csharp_ls.enable = true;
         html.enable = true;
         gopls.enable = true;
         cssls.enable = true;
         clangd.enable = true;
         jsonls.enable = true;
-        tsserver.enable = true;
+        ts_ls.enable = true;
         svelte.enable = true;
+				tailwindcss.enable = true;
         sqls.enable = true;
       };
       keymaps = {

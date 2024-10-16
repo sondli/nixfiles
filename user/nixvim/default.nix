@@ -16,6 +16,7 @@
     ./plugins/nvim-tree
   ];
 
+
   programs.nixvim = {
     enable = true;
     defaultEditor = true;
@@ -24,12 +25,15 @@
 
     colorschemes.gruvbox.enable = true;
 
-    extraPlugins = with pkgs.vimPlugins; [ plenary-nvim ];
+    extraPlugins = with pkgs.vimPlugins; [ 
+			plenary-nvim 
+		];
 
     plugins = {
       lualine.enable = true;
-      treesitter.enable = true;
       luasnip.enable = true;
+      treesitter.enable = true;
+      treesitter.settings.highlight.enable = true;
     };
   };
 }
