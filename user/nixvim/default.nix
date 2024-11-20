@@ -17,8 +17,9 @@
 		./plugins/package-info
 		./plugins/harpoon
 		./plugins/markdown-preview
-		./plugins/omnisharp-extended-lsp-nvim
+		# ./plugins/omnisharp-extended-lsp-nvim
 		./plugins/dadbod
+		./plugins/ts-autotag
   ];
 
   home.packages = with pkgs; [ nixfmt-rfc-style ];
@@ -39,7 +40,6 @@
     plugins = {
       lualine.enable = true;
       luasnip.enable = true;
-			ts-autotag.enable = true;
       treesitter.enable = true;
       treesitter.settings.highlight.enable = true;
     };
