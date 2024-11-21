@@ -1,4 +1,9 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 {
   home.packages = with pkgs; [
@@ -40,7 +45,26 @@
           "Mod1+Shift+u" = "exec grim - | wl-copy";
           "Mod1+Shift+y" = ''exec grim -g "$(slurp)" - | wl-copy'';
         };
+      startup = [
+        {
+          command = "${pkgs.writeShellScript "sway-startup" ''
+            swaymsg 'workspace 2'
+            firefox &
+            vesktop &
+            sleep 1
+            swaymsg 'workspace 1'
+            foot -e sh -c "tmux attach-session -t main || tmux new-session -s main" &
+          ''}";
+        }
+      ];
+
+      assigns = {
+        "3" = [
+          { class = "vesktop"; }
+        ];
+      };
     };
+
     extraConfig = ''
       bar { 
           swaybar_command waybar
@@ -57,9 +81,20 @@
         height = 30;
         spacing = 4;
 
-        modules-left = [ "pulseaudio" "cpu" "memory" "network" "backlight" "battery" ];
+        modules-left = [
+          "pulseaudio"
+          "cpu"
+          "memory"
+          "network"
+          "backlight"
+          "battery"
+        ];
         modules-center = [ "sway/workspaces" ];
-        modules-right = [ "tray" "sway/language" "clock" ];
+        modules-right = [
+          "tray"
+          "sway/language"
+          "clock"
+        ];
 
         tray = {
           #"icon-size" = 21;
@@ -76,10 +111,22 @@
         cpu = {
           "format" = "   {usage}%";
         };
-        memory = { "format" = "   {}%"; };
+        memory = {
+          "format" = "   {}%";
+        };
         backlight = {
           "format" = "{icon}  {percent}%";
-          "format-icons" = [ "" "" "" "" "" "" "" "" "" ];
+          "format-icons" = [
+            ""
+            ""
+            ""
+            ""
+            ""
+            ""
+            ""
+            ""
+            ""
+          ];
         };
         battery = {
           "states" = {
@@ -92,7 +139,13 @@
           "format-plugged" = "  {capacity}%";
           #"format-good" = ""; # An empty format will hide the module
           #"format-full" = "";
-          "format-icons" = [ "" "" "" "" "" ];
+          "format-icons" = [
+            ""
+            ""
+            ""
+            ""
+            ""
+          ];
         };
         "sway/language" = {
           "format" = "{}";
@@ -114,7 +167,11 @@
             "phone" = "";
             "portable" = "";
             "car" = "";
-            "default" = [ "" "" "" ];
+            "default" = [
+              ""
+              ""
+              ""
+            ];
           };
           "on-click" = "exec pavucontrol";
         };
