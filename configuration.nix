@@ -76,6 +76,7 @@
     radeontop
 		dbeaver-bin
 		inotify-tools
+		flyctl
   ];
 
   services.xserver = {

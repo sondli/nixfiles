@@ -37,11 +37,15 @@
           xkb_layout = "us,no,ro";
         };
       };
-      keybindings = {
-        "Mod1+Shift+u" = "exec grim - | wl-copy";
-        "Mod1+Shift+y" = ''exec grim -g "$(slurp)" - | wl-copy'';
-        "Mod1+Shift+p" = ''exec swaymsg input type:keyboard xkb_switch_layout next'';
-      };
+      keybindings =
+        let
+          modifier = config.wayland.windowManager.sway.config.modifier;
+        in
+        lib.mkOptionDefault {
+          "Mod1+Shift+u" = "exec grim - | wl-copy";
+          "Mod1+Shift+y" = ''exec grim -g "$(slurp)" - | wl-copy'';
+					"Mod1+Shift+p" = ''exec swaymsg input type:keyboard xkb_switch_layout next'';
+        };
       startup = [
         {
           command = "${pkgs.writeShellScript "sway-startup" ''
