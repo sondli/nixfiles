@@ -105,8 +105,15 @@
     startAgent = true;
   };
 
-  virtualisation.docker.enable = true;
-  virtualisation.virtualbox.host.enable = true;
+  virtualisation = {
+    docker.enable = true;
+    virtualbox = {
+      host.enable = true;
+      host.enableExtensionPack = true;
+      guest.enable = true;
+      guest.dragAndDrop = true;
+    };
+  };
   users.extraGroups.vboxusers.members = [ "sondli" ];
 
   security.rtkit.enable = true;
