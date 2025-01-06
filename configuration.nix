@@ -52,7 +52,7 @@
       "wheel"
       "audio"
       "plugdev"
-			"docker"
+      "docker"
     ];
   };
 
@@ -74,9 +74,9 @@
     google-chrome
     imagemagick
     radeontop
-		dbeaver-bin
-		inotify-tools
-		flyctl
+    dbeaver-bin
+    inotify-tools
+    flyctl
   ];
 
   services.xserver = {
@@ -105,7 +105,9 @@
     startAgent = true;
   };
 
-	virtualisation.docker.enable = true;
+  virtualisation.docker.enable = true;
+  virtualisation.virtualbox.host.enable = true;
+  users.extraGroups.vboxusers.members = [ "sondli" ];
 
   security.rtkit.enable = true;
   services.pipewire = {
