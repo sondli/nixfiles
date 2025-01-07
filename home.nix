@@ -24,6 +24,22 @@
     };
   };
 
+  programs.ssh = {
+    enable = true;
+    matchBlocks = {
+      "vs-ssh.visualstudio.com" = {
+        hostname = "vs-ssh.visualstudio.com";
+        user = "git";
+        identityFile = "~/.ssh/id_rsa_edrmedeso";
+      };
+      "github.com" = {
+        hostname = "github.com";
+        user = "git";
+        identityFile = "~/.ssh/id_ed25519";
+      };
+    };
+  };
+
   home.stateVersion = "23.11";
 
   fonts.fontconfig.enable = true;

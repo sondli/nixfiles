@@ -51,7 +51,6 @@
           command = "${pkgs.writeShellScript "sway-startup" ''
             swaymsg 'workspace 2'
             google-chrome-stable &
-            vesktop &
             sleep 1
             swaymsg 'workspace 1'
             foot -e sh -c "tmux attach-session -t main || tmux new-session -s main" &
