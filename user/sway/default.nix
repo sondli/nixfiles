@@ -50,6 +50,7 @@
         {
           command = "${pkgs.writeShellScript "sway-startup" ''
             swaymsg 'workspace 2'
+						sleep 1
             google-chrome-stable &
             sleep 1
             swaymsg 'workspace 1'

@@ -5,7 +5,14 @@
       adapters.executables = {
         gdb = {
           command = "gdb";
-          args = [ "-i" "dap" ];
+          args = [
+            "-i"
+            "dap"
+          ];
+        };
+        coreclr = {
+          command = "netcoredbg";
+          args = [ "--interpreter=vscode" ];
         };
       };
       extensions = {

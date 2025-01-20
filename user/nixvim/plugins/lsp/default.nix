@@ -25,7 +25,14 @@
           installCargo = false;
           installRustc = false;
         };
-        omnisharp.enable = true;
+        omnisharp = {
+					enable = true;
+					filetypes = [
+						"cs"
+						"cshtml"
+						"razor"
+					];
+				};
         #csharp_ls.enable = true;
         html.enable = true;
         gopls.enable = true;

@@ -77,7 +77,8 @@
     dbeaver-bin
     inotify-tools
     flyctl
-		jetbrains.rider
+    jetbrains.rider
+		netcoredbg
   ];
 
   services.xserver = {
@@ -126,8 +127,6 @@
     };
     pulse.enable = true;
   };
-
-
 
   system.stateVersion = "23.11";
 

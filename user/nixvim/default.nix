@@ -20,6 +20,7 @@
 		# ./plugins/omnisharp-extended-lsp-nvim
 		./plugins/dadbod
 		./plugins/ts-autotag
+		./plugins/easy-dotnet
   ];
 
   home.packages = with pkgs; [ nixfmt-rfc-style ];
@@ -35,6 +36,7 @@
     extraPlugins = with pkgs.vimPlugins; [ 
 			plenary-nvim 
 			vim-csharp
+			easy-dotnet-nvim
 		];
 
     plugins = {

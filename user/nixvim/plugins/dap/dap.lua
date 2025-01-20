@@ -1,4 +1,5 @@
 local dap = require("dap")
+
 dap.configurations.rust = {
 	{
 		name = "Launch",
@@ -45,3 +46,42 @@ dap.configurations.rust = {
 		end
 	},
 }
+
+
+-- -- Configuration for launch mode
+-- local launch_config = {
+-- 	type = "coreclr",
+-- 	name = "launch - netcoredbg",
+-- 	request = "launch",
+-- 	program = function()
+-- 		if vim.fn.confirm('Should I recompile first?', '&yes\n&no', 2) == 1 then
+-- 			local project_path = vim.fn.input('Path to your *proj file: ', vim.fn.getcwd() .. '/', 'file')
+-- 			local cmd = 'dotnet build -c Debug ' .. project_path
+-- 			print('Building ' .. cmd)
+-- 			os.execute(cmd)
+-- 		end
+-- 		return vim.fn.input('Path to dll: ', vim.fn.getcwd() .. '/bin/Debug/net8.0/', 'file')
+-- 	end,
+-- 	cwd = '${workspaceFolder}',
+-- 	env = {
+-- 		ASPNETCORE_ENVIRONMENT = "Local"
+-- 	},
+-- 	args = { "--launch-profile", "Local" }
+-- }
+--
+-- -- Configuration for attach mode
+-- local attach_config = {
+-- 	type = "coreclr",
+-- 	name = "attach - netcoredbg",
+-- 	request = "attach",
+-- 	processId = function()
+-- 		return require('dap.utils').pick_process({
+-- 			filter = function(proc)
+-- 				return proc.name:find("dotnet") ~= nil
+-- 			end
+-- 		})
+-- 	end
+-- }
+--
+-- -- Register both configurations
+-- dap.configurations.cs = { launch_config, attach_config }
