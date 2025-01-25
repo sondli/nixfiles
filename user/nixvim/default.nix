@@ -35,8 +35,6 @@
 
     extraPlugins = with pkgs.vimPlugins; [ 
 			plenary-nvim 
-			vim-csharp
-			easy-dotnet-nvim
 		];
 
     plugins = {

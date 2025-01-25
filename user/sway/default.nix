@@ -36,6 +36,9 @@
         "*" = {
           xkb_layout = "us,no,ro";
         };
+				"type:pointer" = {
+						accel_profile = "flat";
+					};
       };
       keybindings =
         let

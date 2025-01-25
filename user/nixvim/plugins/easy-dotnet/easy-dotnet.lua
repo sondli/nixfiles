@@ -3,7 +3,7 @@ local dotnet = require("easy-dotnet")
 dotnet.setup({
 	auto_bootstrap_namespace = {
 		--block_scoped, file_scoped
-		type = "block_scoped",
+		type = "file_scoped",
 		enabled = true
 	},
 })
@@ -68,3 +68,4 @@ end
 dap.listeners.before['event_terminated']['easy-dotnet'] = function()
 	debug_dll = nil
 end
+

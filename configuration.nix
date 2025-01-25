@@ -78,7 +78,8 @@
     inotify-tools
     flyctl
     jetbrains.rider
-		netcoredbg
+    netcoredbg
+    jq
   ];
 
   services.xserver = {
@@ -88,21 +89,15 @@
     };
   };
 
-  services.libinput = {
-    enable = true;
-    mouse.accelProfile = "flat";
-    mouse.accelSpeed = "0";
-  };
-
   environment.shells = with pkgs; [ zsh ];
   users.defaultUserShell = pkgs.zsh;
   programs.zsh.enable = true;
 
-  programs.sway = {
-    enable = true;
-    wrapperFeatures.gtk = true;
-  };
-
+  # programs.sway = {
+  #   enable = true;
+  #   wrapperFeatures.gtk = true;
+  # };
+  #
   programs.ssh = {
     startAgent = true;
   };
