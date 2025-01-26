@@ -5,7 +5,6 @@
     ./options.nix
     ./remap.nix
 
-    ./plugins/obsidian
     ./plugins/telescope
     ./plugins/dap
     ./plugins/noice

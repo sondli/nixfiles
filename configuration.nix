@@ -70,7 +70,6 @@
     fzf
     ripgrep
     unzip
-    obsidian
     google-chrome
     imagemagick
     radeontop
@@ -93,11 +92,11 @@
   users.defaultUserShell = pkgs.zsh;
   programs.zsh.enable = true;
 
-  # programs.sway = {
-  #   enable = true;
-  #   wrapperFeatures.gtk = true;
-  # };
-  #
+  programs.sway = {
+    enable = true;
+    wrapperFeatures.gtk = true;
+  };
+
   programs.ssh = {
     startAgent = true;
   };
