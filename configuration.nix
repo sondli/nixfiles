@@ -108,6 +108,8 @@
     virtualbox = {
       host.enable = true;
       host.enableExtensionPack = true;
+			host.enableKvm = true;
+			host.addNetworkInterface = false;
       guest.enable = true;
       guest.dragAndDrop = true;
     };

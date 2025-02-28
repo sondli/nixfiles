@@ -15,13 +15,9 @@
           args = [ "--interpreter=vscode" ];
         };
       };
-      extensions = {
-        dap-ui = {
-          enable = true;
-        };
-        dap-virtual-text.enable = true;
-      };
     };
+		plugins.dap-virtual-text.enable = true;
+		plugins.dap-ui.enable = true;
     keymaps = [
       {
         action = ''<Cmd>lua require("dapui").toggle()<CR>'';
