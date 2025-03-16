@@ -21,7 +21,8 @@
     userEmail = "sondre.lillelien@gmail.com";
     extraConfig = {
       init.defaultBranch = "main";
-			push.autoSetupRemote = true;
+      push.autoSetupRemote = true;
+      core.autocrlf = "input";
     };
   };
 
@@ -46,8 +47,8 @@
   fonts.fontconfig.enable = true;
 
   home.packages = with pkgs; [
-		nerd-fonts.jetbrains-mono
-		insomnia
+    nerd-fonts.jetbrains-mono
+    insomnia
   ];
 
   home.sessionVariables = { };

@@ -73,6 +73,8 @@
       bar { 
           swaybar_command waybar
       }
+
+			input type:keyboard xkb_numlock enabled
     '';
   };
 
