@@ -8,9 +8,14 @@
     ./user/sway
     ./user/tmux
     ./user/stylix
-    ./user/firefox
     ./user/yazi
   ];
+
+	nixpkgs = {
+		config = {
+			allowUnfree = true;
+		};
+	};
 
   home.username = "sondli";
   home.homeDirectory = "/home/sondli";
