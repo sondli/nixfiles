@@ -14,7 +14,7 @@
   environment.systemPackages = with pkgs; [
     mangohud
     lutris
-    wineWowPackages.stable
+    wineWow64Packages.stable
   ];
 
   programs.gamemode.enable = true;

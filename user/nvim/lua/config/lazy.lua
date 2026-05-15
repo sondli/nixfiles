@@ -19,7 +19,8 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup({
 	spec = {
 		{ import = "plugins" },
-		{ "neovim/nvim-lspconfig" }
+		{ "neovim/nvim-lspconfig" },
+		{ "nvim-tree/nvim-web-devicons", opts = {} },
 	},
 	checker = { enabled = true },
 })
