@@ -3,57 +3,67 @@
 {
   imports = [
     ./user/zsh
-    ./user/nixvim
+    ./user/nvim
     ./user/foot
     ./user/sway
     ./user/tmux
     ./user/stylix
-    ./user/yazi
+    ./user/claude_code
+    # ./user/yazi
   ];
 
-	nixpkgs = {
-		config = {
-			allowUnfree = true;
-		};
-	};
+  nixpkgs = {
+    config = {
+      allowUnfree = true;
+    };
+  };
 
   home.username = "sondli";
   home.homeDirectory = "/home/sondli";
 
+	gtk.gtk4.theme = null;
+
   programs.git = {
     enable = true;
-    userName = "sondli";
-    userEmail = "sondre.lillelien@gmail.com";
-    extraConfig = {
+    settings = {
+      user = {
+        name = "sondli";
+        email = "sondre.lillelien@gmail.com";
+      };
       init.defaultBranch = "main";
       push.autoSetupRemote = true;
-      core.autocrlf = "input";
+      core = {
+        sshCommand = "ssh -i ~/.ssh/personal -o IdentitiesOnly=yes";
+        autocrlf = "input";
+      };
     };
+    includes = [
+      {
+        condition = "gitdir:~/projects/construsoft/";
+        contents = {
+          user = {
+            name = "sondli";
+            email = "sondre.lillelien@construsoft.com";
+          };
+          core = {
+            sshCommand = "ssh -i ~/.ssh/construsoft -o IdentitiesOnly=yes";
+          };
+        };
+      }
+    ];
   };
 
   programs.ssh = {
     enable = true;
-    matchBlocks = {
-      "vs-ssh.visualstudio.com" = {
-        hostname = "vs-ssh.visualstudio.com";
-        user = "git";
-        identityFile = "~/.ssh/id_rsa_edrmedeso";
-      };
-      "github.com" = {
-        hostname = "github.com";
-        user = "git";
-        identityFile = "~/.ssh/id_ed25519";
-      };
-    };
+		enableDefaultConfig = false;
   };
 
-  home.stateVersion = "23.11";
+  home.stateVersion = "25.11";
 
   fonts.fontconfig.enable = true;
 
   home.packages = with pkgs; [
     nerd-fonts.jetbrains-mono
-    insomnia
   ];
 
   home.sessionVariables = { };

@@ -11,14 +11,16 @@
       ll = "ls -lah";
       sd = "cd ~ && cd \$(find * -type d | fzf)";
       yz = "yazi";
-			nixfiles = "cd ~/nixfiles/";
-      rustdev = "nix-shell ~/nixfiles/shells/rust.nix";
-      dotnetdev = "nix-shell ~/nixfiles/shells/dotnet.nix";
+      cfg = "cd ~/.config/nixos/";
+      nodedev = "nix-shell ~/.config/nixos/shells/node.nix";
+      dotnetdev = "nix-shell ~/.config/nixos/shells/dotnet.nix";
     };
-    initExtra = ''
-      			bindkey '^I' autosuggest-accept
-						bindkey "$terminfo[kcbt]" menu-complete
-      		'';
+    initContent = ''
+      setopt MENU_COMPLETE
+      bindkey '^I' menu-complete
+      bindkey "$terminfo[kcbt]" reverse-menu-complete
+      bindkey '^Y' autosuggest-accept
+    '';
     plugins = [
       {
         name = "zsh-nix-shell";

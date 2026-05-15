@@ -2,16 +2,15 @@
   description = "My first flake!";
 
   inputs = {
-    nixpkgs.url = "nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
     home-manager = {
       url = "github:nix-community/home-manager/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    nixvim = {
-      url = "github:nix-community/nixvim";
+    stylix = {
+      url = "github:nix-community/stylix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    stylix.url = "github:danth/stylix";
   };
 
   outputs =
@@ -19,7 +18,6 @@
       self,
       nixpkgs,
       home-manager,
-      nixvim,
       stylix,
       ...
     }:
@@ -41,9 +39,8 @@
         sondli = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
           modules = [
+            stylix.homeModules.stylix
             ./home.nix
-            stylix.homeManagerModules.stylix
-            nixvim.homeManagerModules.nixvim
           ];
         };
       };

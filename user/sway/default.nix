@@ -20,7 +20,7 @@
     enable = true;
     config = {
       terminal = "foot";
-      modifier = "Mod1";
+      modifier = "Mod4";
       menu = "bemenu-run";
       defaultWorkspace = "workspace number 1";
       window = {
@@ -28,7 +28,7 @@
       };
       output = {
         DP-1 = {
-          mode = "2560x1440@170hz";
+          mode = "3440x1440@180hz";
         };
       };
       bars = [ ];
@@ -49,24 +49,6 @@
           "Mod1+Shift+y" = ''exec grim -g "$(slurp)" - | wl-copy'';
 					"Mod1+Shift+p" = ''exec swaymsg input type:keyboard xkb_switch_layout next'';
         };
-      startup = [
-        {
-          command = "${pkgs.writeShellScript "sway-startup" ''
-            swaymsg 'workspace 2'
-						sleep 1
-            google-chrome-stable &
-            sleep 1
-            swaymsg 'workspace 1'
-            foot -e sh -c "tmux attach-session -t main || tmux new-session -s main" &
-          ''}";
-        }
-      ];
-
-      assigns = {
-        "3" = [
-          { class = "vesktop"; }
-        ];
-      };
     };
 
     extraConfig = ''
