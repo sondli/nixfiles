@@ -103,6 +103,13 @@
     wrapperFeatures.gtk = true;
   };
 
+	# To solve sass needing linked libs
+  programs.nix-ld.enable = true;
+  programs.nix-ld.libraries = with pkgs; [
+    glibc
+    libcxx
+  ];
+
   programs.ssh = {
     startAgent = true;
   };
