@@ -11,20 +11,16 @@ return {
 			local dapui = require("dapui")
 
 			-- Adapter
-			dap.adapters.coreclr = {
+			local netcoredbg_adapter = {
 				type = "executable",
 				command = vim.fn.exepath("netcoredbg") ~= ""
 						and vim.fn.exepath("netcoredbg")
 						or "netcoredbg",
 				args = { "--interpreter=vscode" },
 			}
-			--
-			-- dap.adapters.coreclr = {
-			-- 	type = "executable",
-			-- 	command = "/run/wrappers/bin/netcoredbg",
-			-- 	args = { "--interpreter=vscode" },
-			-- }
 
+			dap.adapters.netcoredbg = netcoredbg_adapter -- needed for unit test debugging
+			dap.adapters.coreclr = netcoredbg_adapter -- needed for normal debugging
 			-- Configuration
 			dap.configurations.cs = {
 				{

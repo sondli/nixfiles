@@ -36,9 +36,9 @@
         "*" = {
           xkb_layout = "us,no,ro";
         };
-				"type:pointer" = {
-						accel_profile = "flat";
-					};
+        "type:pointer" = {
+          accel_profile = "flat";
+        };
       };
       keybindings =
         let
@@ -47,16 +47,16 @@
         lib.mkOptionDefault {
           "Mod1+Shift+u" = "exec grim - | wl-copy";
           "Mod1+Shift+y" = ''exec grim -g "$(slurp)" - | wl-copy'';
-					"Mod1+Shift+p" = ''exec swaymsg input type:keyboard xkb_switch_layout next'';
+          "Mod1+Shift+p" = "exec swaymsg input type:keyboard xkb_switch_layout next";
         };
     };
 
     extraConfig = ''
-      bar { 
-          swaybar_command waybar
-      }
+            bar { 
+                swaybar_command waybar
+            }
 
-			input type:keyboard xkb_numlock enabled
+      			input type:keyboard xkb_numlock enabled
     '';
   };
 
@@ -76,6 +76,7 @@
           "network"
           "backlight"
           "battery"
+					"custom/planner"
         ];
         modules-center = [ "sway/workspaces" ];
         modules-right = [
@@ -162,6 +163,7 @@
             ];
           };
           "on-click" = "exec pavucontrol";
+          "on-click-right" = "exec ~/.config/nixos/scripts/rotate-auto-output.sh";
         };
         network = {
           "interface" = "wlp16s0u5";
@@ -175,7 +177,26 @@
           "tooltip-format-disconnected" = "Disconnected";
           "max-length" = 50;
         };
+        "custom/planner" = {
+          exec = "~/.config/nixos/scripts/planner-health.sh";
+          return-type = "json";
+          interval = 60;
+          format = "{}";
+        };
       };
     };
+    style = ''
+      #custom-planner.healthy {
+          color: #a6e3a1;
+      }
+
+      #custom-planner.unhealthy {
+          color: #f38ba8;
+      }
+
+      #custom-planner.error {
+          color: #fab387;
+      }
+      		'';
   };
 }

@@ -13,7 +13,7 @@
     escapeTime = 0;
     terminal = "screen-256color";
     plugins = with pkgs.tmuxPlugins; [
-      gruvbox
+      catppuccin
     ];
     extraConfig = ''
       ${builtins.readFile ./binds.conf} 

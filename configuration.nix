@@ -76,6 +76,7 @@
     dbeaver-bin
     jetbrains.rider
     jq
+		azure-cli
   ];
 
   services.greetd = {

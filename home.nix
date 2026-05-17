@@ -9,7 +9,7 @@
     ./user/tmux
     ./user/stylix
     ./user/claude_code
-    # ./user/yazi
+    ./user/yazi
   ];
 
   nixpkgs = {
