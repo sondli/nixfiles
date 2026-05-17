@@ -13,6 +13,7 @@ opt.signcolumn = "yes"
 opt.colorcolumn = "120"
 opt.conceallevel = 0
 opt.background = "dark"
+opt.winborder = "rounded"
 
 -- Splits
 opt.splitbelow = true

@@ -41,3 +41,19 @@ vim.api.nvim_create_autocmd("BufNewFile", {
 		vim.api.nvim_win_set_cursor(0, { 5, 4 })
 	end,
 })
+
+vim.api.nvim_create_autocmd('FileType', {
+	pattern = { 'typescript', 'typescriptreact' },
+	callback = function()
+		vim.bo.shiftwidth = 2
+		vim.bo.tabstop = 2
+	end,
+})
+
+vim.api.nvim_create_autocmd('FileType', {
+	pattern = 'cs',
+	callback = function()
+		vim.bo.shiftwidth = 4
+		vim.bo.tabstop = 4
+	end,
+})

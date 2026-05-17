@@ -22,6 +22,7 @@
     nixfmt
     typescript-language-server
     vue-language-server
+		netcoredbg
   ];
 
   xdg.configFile."nvim" = {

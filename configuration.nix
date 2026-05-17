@@ -63,10 +63,7 @@
   nixpkgs.config.allowUnfree = true;
 
   environment.systemPackages = with pkgs; [
-    # wget
     git
-    # vesktop
-    # fastfetch
     btop
     pavucontrol
     fzf
@@ -77,10 +74,7 @@
     neovim
     radeontop
     dbeaver-bin
-    # inotify-tools
-    # flyctl
     jetbrains.rider
-    # netcoredbg
     jq
   ];
 
@@ -103,7 +97,7 @@
     wrapperFeatures.gtk = true;
   };
 
-	# To solve sass needing linked libs
+  # To solve sass needing linked libs
   programs.nix-ld.enable = true;
   programs.nix-ld.libraries = with pkgs; [
     glibc
