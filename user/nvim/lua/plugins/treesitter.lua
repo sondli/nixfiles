@@ -9,7 +9,9 @@ return {
 				"nix",
 				"javascript",
 				"typescript",
-				"c_sharp"
+				"c_sharp",
+				"vue",
+				"html"
 			}
 		end
 	}
