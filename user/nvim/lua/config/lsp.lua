@@ -45,6 +45,43 @@ vim.lsp.config('vue_ls', {})
 vim.lsp.config('ts_ls', ts_ls_config)
 vim.lsp.enable({ 'lua_ls', 'nil_ls', 'ts_ls', 'vue_ls' })
 
+vim.lsp.enable("roslyn_ls")
+
+vim.lsp.config("roslyn_ls", {
+	filetypes = { "razor", "cs", "cshtml" },
+
+	settings = {
+		-- better performance
+		["csharp|background_analysis"] = {
+			dotnet_analyzer_diagnostics_scope = "openFiles",
+			dotnet_compiler_diagnostics_scope = "openFiles",
+		},
+	},
+})
+
+--Enable (broadcasting) snippet capability for completion
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities.textDocument.completion.completionItem.snippetSupport = true
+vim.filetype.add({
+	extension = {
+		cshtml = 'cshtml',
+	},
+})
+
+vim.lsp.config('html', {
+	capabilities = capabilities,
+	filetypes = { 'html', 'cshtml' },
+	init_options = {
+		configurationSection = { "html", "css", "javascript" },
+		embeddedLanguages = {
+			css = true,
+			javascript = true,
+		},
+		provideFormatter = true,
+	},
+})
+vim.lsp.enable('html')
+
 vim.diagnostic.config({
 	severity_sort = true,
 	update_in_insert = false,
@@ -83,7 +120,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
 		map('n', '<leader>rn', vim.lsp.buf.rename, 'Rename symbol')
 		map({ 'n', 'v' }, '<leader>ca', vim.lsp.buf.code_action, 'Code action')
 		map('n', '<leader>f', function()
-			vim.lsp.buf.format({ async = true })
+			require('conform').format({ async = true, lsp_format = 'fallback' })
 		end, 'Format buffer')
 		map('n', '<leader>j', function()
 			vim.diagnostic.goto_next({ severity = vim.diagnostic.severity.ERROR })

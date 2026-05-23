@@ -1,4 +1,7 @@
-{config, pkgs, ...}: 
+{ config, pkgs, ... }:
 {
-	programs.claude-code.enable = true;
+  programs.claude-code = {
+    enable = true;
+    skills = ./skills;
+  };
 }

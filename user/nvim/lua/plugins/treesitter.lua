@@ -11,8 +11,17 @@ return {
 				"typescript",
 				"c_sharp",
 				"vue",
-				"html"
+				"html",
+				"razor",
+				"css"
 			}
+			vim.treesitter.language.register('razor', 'cshtml')
+			vim.api.nvim_create_autocmd('FileType', {
+				pattern = 'cshtml',
+				callback = function()
+					vim.treesitter.start()
+				end,
+			})
 		end
 	}
 }

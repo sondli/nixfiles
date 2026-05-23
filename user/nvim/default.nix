@@ -10,7 +10,7 @@
     enable = true;
     withRuby = false;
     withPython3 = false;
-		defaultEditor = true;
+    defaultEditor = true;
     initLua = lib.fileContents ./init.lua;
   };
 
@@ -18,12 +18,14 @@
     gcc
     tree-sitter
     lua-language-server
-    roslyn-ls
+    # roslyn-ls
     nil
     nixfmt
     typescript-language-server
     vue-language-server
-		netcoredbg
+    prettierd
+    netcoredbg
+    vscode-langservers-extracted
   ];
 
   xdg.configFile."nvim" = {

@@ -12,9 +12,9 @@
     mouse = true;
     escapeTime = 0;
     terminal = "screen-256color";
-    plugins = with pkgs.tmuxPlugins; [
-      catppuccin
-    ];
+    # plugins = with pkgs.tmuxPlugins; [
+    #   # catppuccin
+    # ];
     extraConfig = ''
       ${builtins.readFile ./binds.conf} 
     '';

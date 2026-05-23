@@ -143,7 +143,7 @@
 
         pulseaudio = {
           "scroll-step" = 1;
-          "format" = " {icon}   {volume}%";
+          "format" = " {icon}   {volume}% {desc}";
           "format-bluetooth" = "{icon}  {volume}%  {format_source}";
           "format-bluetooth-muted" = "󰸈 {icon}  {format_source}";
           "format-muted" = "󰸈 {format_source}";
