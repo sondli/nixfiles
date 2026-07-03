@@ -34,7 +34,7 @@
       bars = [ ];
       input = {
         "*" = {
-          xkb_layout = "us,no,ro";
+          xkb_layout = "us,no";
         };
         "type:pointer" = {
           accel_profile = "flat";

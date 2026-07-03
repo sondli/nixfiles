@@ -9,6 +9,7 @@
     ./user/tmux
     ./user/stylix
     ./user/claude_code
+    ./user/devin
     ./user/yazi
   ];
 
@@ -21,7 +22,7 @@
   home.username = "sondli";
   home.homeDirectory = "/home/sondli";
 
-	gtk.gtk4.theme = null;
+	#gtk.gtk4.theme = null;
 
   programs.git = {
     enable = true;

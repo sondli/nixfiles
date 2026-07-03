@@ -77,6 +77,7 @@
     jetbrains.rider
     jq
 		azure-cli
+		devin-cli
   ];
 
   services.greetd = {

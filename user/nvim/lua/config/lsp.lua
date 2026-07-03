@@ -45,6 +45,21 @@ vim.lsp.config('vue_ls', {})
 vim.lsp.config('ts_ls', ts_ls_config)
 vim.lsp.enable({ 'lua_ls', 'nil_ls', 'ts_ls', 'vue_ls' })
 
+local base_on_attach = vim.lsp.config.eslint.on_attach
+vim.lsp.config("eslint", {
+  on_attach = function(client, bufnr)
+    if not base_on_attach then return end
+
+    base_on_attach(client, bufnr)
+    vim.api.nvim_create_autocmd("BufWritePre", {
+      buffer = bufnr,
+      command = "LspEslintFixAll",
+    })
+  end,
+})
+
+vim.lsp.enable("eslint")
+
 vim.lsp.enable("roslyn_ls")
 
 vim.lsp.config("roslyn_ls", {

@@ -30,7 +30,7 @@ vim.api.nvim_create_autocmd("BufNewFile", {
 		local lines = {
 			"namespace " .. namespace .. ";",
 			"",
-			"public class " .. classname,
+			"public sealed class " .. classname,
 			"{",
 			"    ",
 			"}",
