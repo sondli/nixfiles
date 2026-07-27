@@ -78,6 +78,7 @@
     jq
 		azure-cli
 		devin-cli
+		insomnia
   ];
 
   services.greetd = {
@@ -93,6 +94,9 @@
   environment.shells = with pkgs; [ zsh ];
   users.defaultUserShell = pkgs.zsh;
   programs.zsh.enable = true;
+
+	boot.loader.grub.useOSProber = true;
+	time.hardwareClockInLocalTime = true;
 
   programs.sway = {
     enable = true;
