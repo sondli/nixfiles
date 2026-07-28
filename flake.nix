@@ -43,6 +43,13 @@
             ./home.nix
           ];
         };
+        macbook = home-manager.lib.homeManagerConfiguration {
+          pkgs = nixpkgs.legacyPackages.aarch64-darwin;
+          modules = [
+            stylix.homeModules.stylix
+            ./home-darwin.nix
+          ];
+        };
       };
       formatter.${system} = pkgs.nixpkgs-fmt;
     };

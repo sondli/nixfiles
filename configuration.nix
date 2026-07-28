@@ -64,20 +64,14 @@
 
   environment.systemPackages = with pkgs; [
     git
-    btop
     pavucontrol
-    fzf
-    ripgrep
-    unzip
     google-chrome
     imagemagick
     neovim
     radeontop
     dbeaver-bin
     jetbrains.rider
-    jq
 		azure-cli
-		devin-cli
 		insomnia
   ];
 
